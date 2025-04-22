@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo2tfg"
+    tools:context=".login.Registro">
+
+    <EditText
+        android:id="@+id/nombreR"
+        android:layout_width="225dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/edittext_border"
+        android:ems="10"
+        android:hint="@string/nombreR"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/correoR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="211dp"
+        android:layout_height="42dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/bellota_bold"
+        android:text="@string/cancelarRegistro"
+        android:textColor="#260D03"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.889" />
+
+    <Spinner
+        android:id="@+id/tiposDePielR"
+        android:layout_width="225dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="524dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/edittext_border"
+        app:layout_constraintBottom_toTopOf="@+id/registrarR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/registrarR"
+        android:layout_width="174dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="588dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/bellota_bold"
+        android:onClick="registrarUsuario"
+        android:text="@string/aceptarRegisrto"
+        android:textColor="#260D03"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/confirmarCR"
+        android:layout_width="225dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="312dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/edittext_border"
+        android:ems="10"
+        android:hint="@string/confirmarContrasena"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/tiposDePielR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.992" />
+
+    <EditText
+        android:id="@+id/contrasenaR"
+        android:layout_width="225dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="208dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/edittext_border"
+        android:ems="10"
+        android:hint="@string/contraseñaR"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/confirmarCR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/correoR"
+        android:layout_width="225dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/edittext_border"
+        android:ems="10"
+        android:hint="@string/correoR"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/contrasenaR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="254dp"
+        android:layout_height="198dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/nombreR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@mipmap/logotfg" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

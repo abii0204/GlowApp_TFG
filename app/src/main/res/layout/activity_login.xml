@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo2tfg"
+    tools:context=".login.Login">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="225dp"
+        android:layout_height="237dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/codigoVerify"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.852"
+        app:srcCompat="@mipmap/logotfg" />
+
+    <EditText
+        android:id="@+id/codigoVerify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_border"
+        android:ems="10"
+        android:fontFamily="@font/bellota_bold"
+
+        android:hint="@string/usuario"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/contrasenaLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.937" />
+
+    <Button
+        android:id="@+id/registrarR"
+        android:layout_width="149dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="508dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/bellota_bold"
+        android:text="@string/iniciarSesion"
+        android:textColor="#260D03"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/contrasenaLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="412dp"
+
+        android:background="@drawable/edittext_border"
+        android:ems="10"
+        android:fontFamily="@font/bellota_bold"
+        android:hint="@string/contraseña"
+
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/registrarR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.78" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="361dp"
+        android:layout_height="43dp"
+        android:background="#00FFFFFF"
+        android:fontFamily="@font/bellota_bold"
+        android:onClick="IrARegistroL"
+        android:text="@string/registrarse"
+        android:textColor="#260D03"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.773" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

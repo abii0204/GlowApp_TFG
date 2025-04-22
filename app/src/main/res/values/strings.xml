@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">GlowApp_TFG</string>
+
+    //MAIN
+    <string-array name="frases_main">
+        <item>Tu piel, tu historia.</item>
+        <item>Brilla con tu rutina de piel.</item>
+        <item>Empieza cuidando tu piel.</item>
+        <item>Menos estrés, mejor piel.</item>
+        <item>El sol deja huella, protégela.</item>
+        <item>Sé constate, tu piel lo agradecerá.</item>
+        <item>Desmaquíllate antes de dormir.</item>
+        <item>Tu piel lo nota todo, cuídala.</item>
+        <item>Bebe al menos 2l de agua diarios.</item>
+        <item>Duerme bien, luce mejor.</item>
+        <item>La vitamina C ilumina y unifica.</item>
+        <item>Haz deporte, todo suma.</item>
+        <item>Una piel sana, un tú radiante.</item>
+        <item>Protector solar, tu mejor amigo.</item>
+        <item>Protégete de la polución.</item>
+    </string-array>
+
+    //LOGIN
+    <string name="usuario">Correo electrónico</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="iniciarSesion">Iniciar sesión</string>
+    <string name="registrarse">¿Aún no tienes cuenta? Regístrate aquí</string>
+
+    //REGISTRO
+    <string name="nombreR">Nombre</string>
+    <string name="correoR">Correo electrónico</string>
+    <string name="contraseñaR">Contraseña</string>
+    <string name="confirmarContrasena">Confirmar contraseña</string>
+    <string name="registrarseR">¿Aún no tienes cuenta? Regístrate aquí</string>
+    <string name="aceptarRegisrto">Registrarse</string>
+    <string name="cancelarRegistro">Volver al inicio</string>
+
+</resources>
