@@ -35,4 +35,23 @@
     <string name="aceptarRegisrto">Registrarse</string>
     <string name="cancelarRegistro">Volver al inicio</string>
 
+    //MENÚ PRINCIPAL
+    <string name="bienvenido">Bienvenido</string>
+    <string name="selfie">¡Hazte un selfie!</string>
+    <string name="piel">¿Cómo sientes tu piel hoy?</string>
+    <string name="pielEscribir">Escribe como sientes tu piel y pulsa el botón añadir</string>
+    <string name="pielAñadir">Sentimientos añadidos: </string>
+    <string name="productos">¿Qué productos has utilizado hoy?</string>
+    <string name="productosEscribir">Escribe un producto y pulsa el botón añadir</string>
+    <string name="productosAñadir">Productos añadidos: </string>
+    <string name="comida">¿Qué alimentos has comido hoy?</string>
+    <string name="comidaEscribir">Escribe un alimento y pulsa el botón añadir</string>
+    <string name="comidaAñadir">Alimentos añadidos: </string>
+    <string name="agua">¿Cuánta cantidad de agua has bebido hoy?</string>
+    <string name="aguaAñadir">Agua consumida: </string>
+
+    //RESEÑAS
+    <string name="tituloResenas">¿Necesitas saber cómo le ha ido un producto de cuidado de la piel a otros usuarios?</string>
+    <string name="subtituloResenas">¡Descubre aquí sus reseñas!</string>
+    <string name="insertarResenas">Escribe tu propia reseña de un producto para ayudar a otros usuaios</string>
 </resources>

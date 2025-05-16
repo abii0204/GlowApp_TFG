@@ -2,6 +2,7 @@ package com.example.glowapp_tfg.modelos;
 
 public class UsuarioModel {
 
+    private int id;
     String nombre;
     String correo;
     String contrasena;
@@ -10,11 +11,27 @@ public class UsuarioModel {
     public UsuarioModel() {
     }
 
-    public UsuarioModel(String nombre, String correo, String contrasena, String tipo_piel) {
+    public UsuarioModel(int id, String nombre, String email, String contrasena, String tipoPiel) {
+        this.id = id;
         this.nombre = nombre;
-        this.correo = correo;
+        this.correo = email;
         this.contrasena = contrasena;
-        this.tipo_piel = tipo_piel;
+        this.tipo_piel = tipoPiel;
+    }
+
+    public UsuarioModel(String nombre, String email, String contrasena, String tipoPiel) {
+        this.nombre = nombre;
+        this.correo = email;
+        this.contrasena = contrasena;
+        this.tipo_piel = tipoPiel;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {

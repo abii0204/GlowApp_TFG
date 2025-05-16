@@ -58,6 +58,10 @@ public class Registro extends AppCompatActivity {
         contrasenaConfirm = findViewById(R.id.confirmarCR);
     }
 
+    public void VolverAlLogin(View view) throws SQLException {
+        finish();
+    }
+
     public void elegirTipoPiel(){
         tipoPiel = findViewById(R.id.tiposDePielR);
 
@@ -79,7 +83,6 @@ public class Registro extends AppCompatActivity {
     }
 
     public void registrarUsuario(View view) {
-
         String nb = String.valueOf(this.nombre.getText());
         String ml = String.valueOf(correo.getText());
         String cnt = String.valueOf(contrasena.getText());
@@ -91,23 +94,32 @@ public class Registro extends AppCompatActivity {
         }
 
         if (!cnt.equals(cntC)) {
-            Toast.makeText(this, "Las contraseñas no coincicen", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
             return;
         }
 
-//        if (usuarioDAO.existeEmail(ml)) {
-//            Toast.makeText(this, "El usuario ya existe", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(ml).matches()) {
+            Toast.makeText(this, "Por favor, introduce un correo válido", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (usuarioDAO.existeEmail(ml)) {
+            Toast.makeText(this, "El correo ya está registrado", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         UsuarioModel nuevoUsuario = new UsuarioModel(nb, ml, cnt, tipoSeleccionado);
-        usuarioDAO.insertarUsuario(nuevoUsuario);
 
-        if (usuarioDAO.insertarUsuario(nuevoUsuario)) {
-            Intent intent = new Intent(this, VerificarCodigo.class);
-            startActivity(intent);
+        boolean registroExitoso = usuarioDAO.insertarUsuario(nuevoUsuario);
+
+        if (registroExitoso) {
+            Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show();
+            finish();
+//            Intent intent = new Intent(this, Login.class);
+//            startActivity(intent);
         } else {
             Toast.makeText(this, "Error al registrar el usuario", Toast.LENGTH_SHORT).show();
         }
     }
+
 }

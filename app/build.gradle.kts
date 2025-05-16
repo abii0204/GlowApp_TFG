@@ -40,7 +40,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation("org.postgresql:postgresql:42.2.9")
+    implementation("com.google.android.material:material:1.11.0")
     implementation(libs.postgresql)
     implementation(libs.jcraft)
 }
