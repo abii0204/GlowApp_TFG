@@ -67,6 +67,6 @@ En el archivo script_bbdd_tfg.txt (incluido en el repositorio) se encuentra:
 **IMPORTANTE** Asegúrate de ejecutar este script en tu servidor PostgreSQL antes de lanzar la aplicación.
 
 ## Contacto
-Autor: Abigail Alfageme Molinero
-Correo: abialfa10@gmail.com
+- Autor: Abigail Alfageme Molinero
+- Correo: abialfa10@gmail.com
 
