@@ -64,7 +64,7 @@ En el archivo script_bbdd_tfg.txt (incluido en el repositorio) se encuentra:
 - La creación completa de todas las tablas necesarias.
 - Las relaciones, claves foráneas y triggers.
 - Inserciones de datos iniciales.
-**IMPORTANTE** Asegúrate de ejecutar este script en tu servidor PostgreSQL antes de lanzar la aplicación.
+- **IMPORTANTE** Asegúrate de ejecutar este script en tu servidor PostgreSQL antes de lanzar la aplicación.
 
 ## Contacto
 - Autor: Abigail Alfageme Molinero
