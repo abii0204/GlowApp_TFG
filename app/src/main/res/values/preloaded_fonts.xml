@@ -5,5 +5,19 @@
         <item>@font/belleza</item>
         <item>@font/bellota_bold</item>
         <item>@font/bellota_text_light</item>
+        <item>@font/lora</item>
+        <item>@font/lora_bold</item>
+        <item>@font/lora_bold_italic</item>
+        <item>@font/lora_italic</item>
+        <item>@font/lora_medium</item>
+        <item>@font/lora_medium_italic</item>
+        <item>@font/lora_semibold</item>
+        <item>@font/lora_semibold_italic</item>
+        <item>@font/merienda_light</item>
+        <item>@font/merienda_semibold</item>
+        <item>@font/montserrat_medium_italic</item>
+        <item>@font/sora</item>
+        <item>@font/sora_light</item>
+        <item>@font/sora_semibold</item>
     </array>
 </resources>

@@ -1,6 +1,8 @@
 package com.example.glowapp_tfg.login;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -74,9 +76,15 @@ public class Login extends AppCompatActivity {
             }
 
             Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, MenuPrincipal.class);
+            Intent intent = new Intent(Login.this, MenuPrincipal.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             intent.putExtra("nombreUsuario", usuario.getNombre());
             intent.putExtra("idUsuario", usuario.getId());
+            SharedPreferences sharedPreferences = getSharedPreferences("datosGuardados", Context.MODE_PRIVATE);
+            SharedPreferences.Editor sharedPreferencesEditor = sharedPreferences.edit();
+            sharedPreferencesEditor.putInt("idUsuario", usuario.getId());
+            sharedPreferencesEditor.putString("nombreUsuario", usuario.getNombre());
+            sharedPreferencesEditor.apply();
             startActivity(intent);
             finish();
 

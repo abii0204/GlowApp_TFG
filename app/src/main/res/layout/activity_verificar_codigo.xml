@@ -1,40 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo2tfg"
-    tools:context=".login.VerificarCodigo">
 
-    <EditText
-        android:id="@+id/correoLogin"
-        android:layout_width="wrap_content"
+    android:padding="24dp"
+    android:background="@drawable/fondo2tfg">
+
+    <LinearLayout
+        android:id="@+id/tituloPrincipalResenasLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        android:background="@drawable/edittext_border"
-        android:ems="10"
-        android:fontFamily="@font/bellota_bold"
-        android:hint="@string/usuario"
-        android:inputType="text"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iconoResenas1"
+            android:layout_width="53dp"
+            android:layout_height="65dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/destellos" />
+
+        <TextView
+            android:id="@+id/tituloPrincipalResenas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/lora_bold"
+            android:text="@string/verifica"
+            android:textColor="#472D20"
+            android:textSize="28sp" />
+
+        <ImageView
+            android:id="@+id/iconoResenas"
+            android:layout_width="53dp"
+            android:layout_height="65dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/destellos" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btCancelarVerificar"
+        style="@style/BotonBlancoTransparente"
+        android:onClick="cancelarRegistro"
+        android:text="@string/cancelarV"
+        android:textColor="#2F251F"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.712" />
 
     <EditText
-        android:id="@+id/correoLogin"
+        android:id="@+id/editTextCodigo"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/edittext_border"
+        android:fontFamily="@font/lora"
+        android:hint="@string/codigoV"
+        android:inputType="number"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonVerificar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.575"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_percent="0.6" />
+
+    <Button
+        android:id="@+id/buttonVerificar"
+        style="@style/BotonBlancoTransparente"
+        app:backgroundTint="@null"
+        android:onClick="verificarCodigo"
+        android:text="@string/verificarV"
+        android:textColor="#2F251F"
+        app:layout_constraintBottom_toTopOf="@+id/btCancelarVerificar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.98" />
+
+    <TextView
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="192dp"
-        android:background="@drawable/edittext_border"
-        android:ems="10"
-        android:fontFamily="@font/bellota_bold"
-        android:hint="@string/usuario"
-        android:inputType="text"
+        android:fontFamily="@font/lora_bold"
+        android:text="@string/titulo1V"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.867" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/lora_semibold"
+        android:gravity="center"
+        android:text="@string/tituloV"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="135dp"
+        android:layout_height="133dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.864"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.439"
+        app:srcCompat="@drawable/gatocodigo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

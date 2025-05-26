@@ -8,48 +8,110 @@
     tools:context=".menus.MenuPrincipal"
     android:background="@drawable/fondo2tfg">
 
+
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:padding="16dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:id="@+id/tituloPrincipalResenasLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:id="@+id/iconoResenas1"
+                    android:layout_width="53dp"
+                    android:layout_height="65dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/destellos" />
+
+                <TextView
+                    android:id="@+id/tituloPrincipalResenas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/lora_bold"
+                    android:text="@string/seguimiento"
+                    android:textColor="#85624A"
+                    android:textSize="28sp" />
+
+                <ImageView
+                    android:id="@+id/iconoResenas"
+                    android:layout_width="53dp"
+                    android:layout_height="65dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/destellos" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/txtBienvenidoM"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/belleza"
+                android:fontFamily="@font/lora_semibold"
                 android:text="@string/bienvenido"
                 android:textSize="24dp" />
 
             <!-- Calendario -->
+
+            <!-- Selfie -->
+
             <CalendarView
                 android:id="@+id/idCalendario"
                 android:layout_width="match_parent"
-                android:layout_height="230dp"
+                android:layout_height="307dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="20dp" />
 
-            <!-- Selfie -->
             <TextView
-                android:id="@+id/selfieLabel"
-                android:fontFamily="@font/belleza"
+                android:id="@+id/comienzaLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/lora_semibold"
+                android:gravity="center"
+                android:text="@string/comienza"
+                android:textSize="24dp" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/linea" />
+
+            <TextView
+                android:id="@+id/selfieLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/lora_medium"
                 android:text="@string/selfie"
-                android:textSize="20dp"
-                android:layout_marginBottom="10dp" />
+                android:textSize="20dp" />
 
             <!-- Sentimiento de la piel -->
             <ImageView
                 android:id="@+id/idImagenSelfie"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
+                android:src="@drawable/selfiegato"
+                android:scaleType="fitCenter"
                 android:layout_marginBottom="20dp" />
 
             <ImageButton
@@ -58,41 +120,47 @@
                 android:layout_height="69dp"
                 android:layout_marginBottom="10dp"
                 android:background="@null"
-                android:onClick="abrirCamara"
+                android:onClick="pedirPermisosCamara"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/botonmas" />
+
+            <Button
+                android:id="@+id/borrarSelfie"
+                style="@style/BotonBlancoTransparente"
+                android:layout_width="153dp"
+                android:layout_height="52dp"
+                android:fontFamily="@font/lora_bold_italic"
+                android:gravity="center"
+                android:onClick="borrarSelfie"
+                android:text="@string/borrarSelfie"
+                android:textColor="#BF382B23"
+                android:textSize="14dp"
+                app:backgroundTint="@null" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/linea" />
+
             <TextView
                 android:id="@+id/sentimientoPielLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:fontFamily="@font/belleza"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/lora_medium"
                 android:text="@string/piel"
-                android:textSize="20dp"
-                android:layout_marginBottom="10dp" />
+                android:textSize="20dp" />
 
             <Spinner
                 android:id="@+id/spSentimientosPiel"
                 android:layout_width="match_parent"
-                android:textSize="20dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp" />
-
-            <TextView
-                android:id="@+id/lbSentimientosAñadidos"
-                android:layout_width="match_parent"
-                android:fontFamily="@font/belleza"
-                android:layout_height="wrap_content"
-                android:text="@string/pielAñadir"
-                android:textSize="20dp"
-                android:layout_marginBottom="10dp" />
-
-            <LinearLayout
-                android:id="@+id/linearLayoutSentimientos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="20dp" />
+                android:layout_marginBottom="10dp"
+                android:textSize="20dp" />
 
             <ImageButton
                 android:id="@+id/btAnadirSentimiento"
@@ -104,40 +172,63 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/botonmas" />
 
+            <TextView
+                android:id="@+id/lbSentimientosAñadidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/lora"
+                android:text="@string/pielAñadir"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/borrarSentimientos"
+                style="@style/BotonBlancoTransparente"
+                android:layout_width="187dp"
+                android:layout_height="49dp"
+                android:gravity="center"
+                android:onClick="borrarSentimientos"
+                android:text="@string/borrarEstados"
+                android:textColor="#BF382B23"
+                android:textSize="14dp"
+                app:backgroundTint="@null" />
+
+            <LinearLayout
+                android:id="@+id/linearLayoutSentimientos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical" >
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/linea" />
+
             <!-- Productos Usados -->
             <TextView
                 android:id="@+id/productosUsadosLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:fontFamily="@font/belleza"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/lora_medium"
                 android:text="@string/productos"
-                android:textSize="20dp"
-                android:layout_marginBottom="10dp" />
+                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/etProductosUsados"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/belleza"
-                android:textSize="18dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/lora"
                 android:hint="@string/productosEscribir"
-                android:layout_marginBottom="10dp" />
-
-            <TextView
-                android:id="@+id/lbProductosAñadidos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/productosAñadir"
-                android:fontFamily="@font/belleza"
-                android:textSize="20dp" />
-
-            <LinearLayout
-                android:id="@+id/linearLayoutProductos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="10dp" />
+                android:textSize="18dp" />
 
             <ImageButton
                 android:id="@+id/btMeterProducto"
@@ -149,42 +240,63 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/botonmas" />
 
+            <TextView
+                android:id="@+id/lbProductosAñadidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lora"
+                android:text="@string/productosAñadir"
+                android:textSize="20dp" />
+
+
+
+            <LinearLayout
+                android:id="@+id/linearLayoutProductos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical" />
+
+            <Button
+                android:id="@+id/borrarProductos"
+                style="@style/BotonBlancoTransparente"
+                android:layout_width="196dp"
+                android:layout_height="52dp"
+                android:gravity="center"
+                android:onClick="borrarProductos"
+                android:text="@string/borrarProductos"
+                android:textColor="#BF382B23"
+                android:textSize="14dp"
+                app:backgroundTint="@null" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/linea" />
+
+
             <!-- Alimentación -->
             <TextView
                 android:id="@+id/alimentacionLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:fontFamily="@font/belleza"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/lora_medium"
                 android:text="@string/comida"
-                android:textSize="20dp"
-                android:layout_marginBottom="10dp" />
+                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/etAñadirAlimentos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/lora"
                 android:hint="@string/comidaEscribir"
-                android:fontFamily="@font/belleza"
-
-                android:layout_marginBottom="10dp" />
-
-            <TextView
-                android:id="@+id/lbAlimentosAñadidos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/comidaAñadir"
-                android:fontFamily="@font/belleza"
-                android:textSize="20dp"
-                android:layout_marginBottom="10dp" />
-
-            <LinearLayout
-                android:id="@+id/linearLayoutAlimentos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="10dp" />
+                android:textSize="18dp" />
 
             <ImageButton
                 android:id="@+id/btAnadirAlimentos"
@@ -196,50 +308,95 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/botonmas" />
 
+            <TextView
+                android:id="@+id/lbAlimentosAñadidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/lora"
+                android:text="@string/comidaAñadir"
+                android:textSize="20dp" />
+
+
+
+            <LinearLayout
+                android:id="@+id/linearLayoutAlimentos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical" />
+
+            <Button
+                android:id="@+id/borrarAlimentos"
+                style="@style/BotonBlancoTransparente"
+                android:layout_width="191dp"
+                android:layout_height="54dp"
+                android:gravity="center"
+                android:onClick="borrarAlimentos"
+                android:text="@string/borrarAlimentos"
+                android:textColor="#BF382B23"
+                android:textSize="14dp"
+                app:backgroundTint="@null" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/linea" />
+
             <!-- Agua Consumida -->
             <TextView
                 android:id="@+id/aguaConsumidaLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/belleza"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/lora_medium"
                 android:text="@string/agua"
                 android:textSize="20dp" />
 
-            <Spinner
-                android:id="@+id/spAguaConsumida"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:textSize="20dp" />
-
-            <TextView
-                android:id="@+id/lbCantidadAguaConsumida"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/belleza"
-                android:textSize="20dp"
-                android:text="@string/aguaAñadir" />
-
-            <ImageButton
-                android:id="@+id/btAnadirAgua"
-                android:layout_width="78dp"
-                android:layout_height="69dp"
-                android:layout_marginBottom="20dp"
-                android:background="@null"
-                android:onClick="introducirAgua"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/botonmas" />
-
             <LinearLayout
-                android:id="@+id/linearLayoutAgua"
+                android:id="@+id/layoutAgua"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="20dp" />
+                android:layout_marginBottom="150dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- Botón restar agua -->
+                <ImageButton
+                    android:id="@+id/btRestarAgua"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@null"
+                    android:onClick="restarAgua"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/restaragua" />
+
+                <!-- Imagen del vaso actual -->
+                <ImageView
+                    android:id="@+id/imgVasoAgua"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/primervaso" />
+
+                <!-- Botón sumar agua -->
+                <ImageButton
+                    android:id="@+id/btSumarAgua"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:background="@null"
+                    android:onClick="sumarAgua"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/sumaragua" />
+            </LinearLayout>
 
         </LinearLayout>
+
 
     </ScrollView>
 
@@ -249,8 +406,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#CEC2A9"
-        app:menu="@menu/bottom_nav_menu"
         app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

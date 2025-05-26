@@ -7,29 +7,31 @@
     android:background="@drawable/fondo1_tfg"
     android:gravity="center">
 
+
     <EditText
         android:id="@+id/etProducto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Producto" />
+        android:hint="@string/productoPopup" />
 
     <EditText
         android:id="@+id/etMarca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Marca" />
+        android:hint="@string/marcaPopup" />
 
-    <EditText
-        android:id="@+id/etTipoPiel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Tipo de piel" />
+
+    <Spinner
+        android:id="@+id/spTipoPielPopUp"
+        android:layout_width="327dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="12dp" />
 
     <EditText
         android:id="@+id/etComentario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Comentario"
+        android:hint="@string/comentarioPopup"
         android:inputType="textMultiLine"
         android:minLines="3" />
 
@@ -42,8 +44,8 @@
 
     <Button
         android:id="@+id/btnGuardarResena"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/BotonBlancoTransparente"
+        android:backgroundTint="@null"
         android:onClick="guardarResena"
-        android:text="Guardar" />
+        android:text="@string/guardarPopup" />
 </LinearLayout>

@@ -117,6 +117,12 @@ public class Registro extends AppCompatActivity {
             finish();
 //            Intent intent = new Intent(this, Login.class);
 //            startActivity(intent);
+
+            Intent intent = new Intent(this, VerificarCodigo.class);
+            intent.putExtra("email", ml);
+            startActivity(intent);
+            finish();
+
         } else {
             Toast.makeText(this, "Error al registrar el usuario", Toast.LENGTH_SHORT).show();
         }

@@ -1,5 +1,9 @@
 package com.example.glowapp_tfg.dao;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
+
 import com.example.glowapp_tfg.conexion.ConexionBBDD;
 
 import java.sql.Connection;
@@ -10,6 +14,70 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SeguimientoDAO extends ConexionBBDD {
+
+    public void guardarSelfieEnSeguimiento(int idSeguimiento, byte[] imagenBytes) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            connection = conectarBD();
+
+            String sql = "UPDATE seguimiento SET selfie = ? WHERE id = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setBytes(1, imagenBytes);
+            statement.setInt(2, idSeguimiento);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Error al guardar la selfie: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            try {
+                if (statement != null) statement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
+    public Bitmap obtenerSelfiePorFecha(int idUsuario, String fecha) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = conectarBD();
+            String sql = "SELECT selfie FROM seguimiento WHERE usuario_id = ? AND fecha = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, idUsuario);
+            statement.setDate(2, Date.valueOf(fecha));
+            resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                byte[] imagenBytes = resultSet.getBytes("selfie");
+                if (imagenBytes != null) {
+                    return BitmapFactory.decodeByteArray(imagenBytes, 0, imagenBytes.length);
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al recuperar la selfie: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            try {
+                if (resultSet != null) resultSet.close();
+                if (statement != null) statement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return null;
+    }
+
+
 
     public void insertarSentimientoEnSeguimiento(int idSeguimiento, int idUsuario, String nombreSentimiento) {
         Connection connection = null;
@@ -36,11 +104,10 @@ public class SeguimientoDAO extends ConexionBBDD {
             preparedStatement.close();
 
 
-            String insertQuery = "INSERT INTO sentimientos_seguimiento (id_seguimiento, id_sentimiento, id_usuario) VALUES (?, ?, ?)";
+            String insertQuery = "INSERT INTO sentimientos_seguimiento (id_seguimiento, id_sentimiento) VALUES (?, ?)";
             preparedStatement = connection.prepareStatement(insertQuery);
             preparedStatement.setInt(1, idSeguimiento);
             preparedStatement.setInt(2, idSentimiento);
-            preparedStatement.setInt(3, idUsuario);  // Asociamos el sentimiento con el usuario
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -103,21 +170,32 @@ public class SeguimientoDAO extends ConexionBBDD {
         return -1;
     }
 
-    public void insertarAguaConsumida(int idSeguimiento, int cantidad) {
+    public void actualizarAguaConsumida(int idSeguimiento, int cantidad) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
         try {
             connection = conectarBD();
 
-            String query = "INSERT INTO agua_consumida (seguimiento_id, cantidad_ml) VALUES (?, ?)";
+            String query = "UPDATE agua_consumida SET cantidad_ml = ? WHERE seguimiento_id = ?";
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, idSeguimiento);
-            preparedStatement.setInt(2, cantidad);
+            preparedStatement.setInt(1, cantidad);
+            preparedStatement.setInt(2, idSeguimiento);
 
-            preparedStatement.executeUpdate();
+            int filasAfectadas = preparedStatement.executeUpdate();
+
+            // Si no existe el registro aún, lo insertamos
+            if (filasAfectadas == 0) {
+                preparedStatement.close();
+                query = "INSERT INTO agua_consumida (seguimiento_id, cantidad_ml) VALUES (?, ?)";
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1, idSeguimiento);
+                preparedStatement.setInt(2, cantidad);
+                preparedStatement.executeUpdate();
+            }
+
         } catch (SQLException e) {
-            System.err.println("Error al insertar agua consumida: " + e.getMessage());
+            System.err.println("Error al actualizar/insertar agua consumida: " + e.getMessage());
             e.printStackTrace();
         } finally {
             try {
@@ -128,6 +206,7 @@ public class SeguimientoDAO extends ConexionBBDD {
             }
         }
     }
+
 
     public void insertarAlimentoEnSeguimiento(int idSeguimiento, String alimento) {
         Connection connection = null;
@@ -186,6 +265,7 @@ public class SeguimientoDAO extends ConexionBBDD {
         public ArrayList<String> sentimientos = new ArrayList<>();
         public ArrayList<String> alimentos = new ArrayList<>();
         public ArrayList<String> productos = new ArrayList<>();
+        public String selfie;
         public int agua = 0;
     }
 
@@ -271,5 +351,70 @@ public class SeguimientoDAO extends ConexionBBDD {
 
         return datos;
     }
+
+    public void borrarSelfie(int idSeguimiento) {
+        Connection connection = conectarBD();
+        if (connection != null) {
+            try {
+                PreparedStatement stmt = connection.prepareStatement(
+                        "UPDATE seguimiento SET selfie = NULL WHERE id = ?");
+                stmt.setInt(1, idSeguimiento);
+                stmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void borrarSentimientos(int idSeguimiento) {
+        Connection connection = conectarBD();
+        if (connection != null) {
+            try {
+                PreparedStatement stmt = connection.prepareStatement(
+                        "DELETE FROM sentimientos_seguimiento WHERE id_seguimiento = ?");
+                stmt.setInt(1, idSeguimiento);
+                stmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
+    public void borrarProductos(int idSeguimiento) {
+        Connection connection = conectarBD();
+        if (connection != null) {
+            try {
+                PreparedStatement stmt = connection.prepareStatement(
+                        "DELETE FROM seguimiento_productos WHERE seguimiento_id = ?");
+                stmt.setInt(1, idSeguimiento);
+                stmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void borrarAlimentos(int idSeguimiento) {
+        Connection connection = conectarBD();
+        if (connection != null) {
+            try {
+                PreparedStatement stmt = connection.prepareStatement(
+                        "DELETE FROM seguimiento_alimentos WHERE seguimiento_id = ?");
+                stmt.setInt(1, idSeguimiento);
+                stmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
 
 }

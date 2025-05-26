@@ -3,7 +3,9 @@ package com.example.glowapp_tfg;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -15,6 +17,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.glowapp_tfg.login.Login;
+import com.example.glowapp_tfg.menus.MenuPrincipal;
 
 import java.sql.SQLException;
 import java.util.Random;
@@ -80,8 +83,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void IrALogin(View view) throws SQLException {
-        Intent intent = new Intent(this, Login.class);
-        startActivity(intent);
+        SharedPreferences sharedPreferences = getSharedPreferences("datosGuardados", Context.MODE_PRIVATE);
+        if(sharedPreferences.contains("idUsuario") && sharedPreferences.contains("nombreUsuario")){
+            Intent intent = new Intent(this, MenuPrincipal.class);
+            startActivity(intent);
+            finish();
+        }
+        else{
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
+            finish();
+        }
+
     }
 
 }

@@ -6,39 +6,61 @@
     android:padding="10dp"
     android:layout_margin="8dp">
 
+    <!-- Nombre del usuario -->
+    <TextView
+        android:id="@+id/tvNombreUsuarioResena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre del usuario"
+        android:textStyle="bold"
+        android:textSize="16sp" />
+
+    <!-- Fecha de la reseña -->
+    <TextView
+        android:id="@+id/tvFechaResena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha"
+        android:textSize="14sp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Producto -->
     <TextView
         android:id="@+id/tvProducto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Producto"
-        android:textStyle="bold"
         android:textSize="16sp" />
 
+    <!-- Marca -->
     <TextView
         android:id="@+id/tvMarca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Marca"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
+    <!-- Tipo de piel -->
     <TextView
         android:id="@+id/tvTipoPiel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tipo de piel"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
+    <!-- Comentario -->
     <TextView
         android:id="@+id/tvComentario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Comentario"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
+    <!-- Puntuación -->
     <TextView
         android:id="@+id/tvPuntuacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Puntuación"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 </LinearLayout>

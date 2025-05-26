@@ -45,29 +45,172 @@ public class ResenaDAO extends ConexionBBDD {
 
     public ArrayList<ResenaModel> obtenerTodasLasResenas() {
         ArrayList<ResenaModel> lista = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
 
-        try (Connection conn = conectarBD();
-             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM reseñas ORDER BY fecha DESC")) {
-
-            ResultSet rs = stmt.executeQuery();
+        try {
+            conn = conectarBD();
+            String sql = "SELECT r.*, u.nombre AS nombre_usuario " +
+                    "FROM reseñas r " +
+                    "JOIN usuarios u ON r.usuario_id = u.id " +
+                    "ORDER BY r.fecha DESC";
+            stmt = conn.prepareStatement(sql);
+            rs = stmt.executeQuery();
 
             while (rs.next()) {
-                ResenaModel resena = new ResenaModel(
-                        rs.getInt("usuario_id"),
-                        rs.getString("producto"),
-                        rs.getString("marca"),
-                        rs.getString("tipo_piel"),
-                        rs.getString("comentario"),
-                        rs.getInt("puntuacion")
-                );
+                int usuarioId = rs.getInt("usuario_id");
+                String nombreUsuario = rs.getString("nombre_usuario");
+                String producto = rs.getString("producto");
+                String marca = rs.getString("marca");
+                String tipoPiel = rs.getString("tipo_piel");
+                String comentario = rs.getString("comentario");
+                int puntuacion = rs.getInt("puntuacion");
+                String fecha = rs.getString("fecha"); // Asegúrate de que la columna existe
+
+                ResenaModel resena = new ResenaModel(usuarioId, nombreUsuario, producto, marca, tipoPiel, comentario, puntuacion, fecha);
                 lista.add(resena);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         return lista;
     }
+
+    public ArrayList<ResenaModel> buscarPorTipoPiel(String tipoPiel) {
+        ArrayList<ResenaModel> lista = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT r.*, u.nombre AS nombre_usuario FROM reseñas r " +
+                "JOIN usuarios u ON r.usuario_id = u.id " +
+                "WHERE r.tipo_piel ILIKE ?";
+
+        try {
+            conn = conectarBD();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, "%" + tipoPiel + "%");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ResenaModel resena = new ResenaModel();
+                resena.setIdUsuario(rs.getInt("usuario_id"));
+                resena.setNombreUsuario(rs.getString("nombre_usuario"));
+                resena.setProducto(rs.getString("producto"));
+                resena.setMarca(rs.getString("marca"));
+                resena.setTipoPiel(rs.getString("tipo_piel"));
+                resena.setComentario(rs.getString("comentario"));
+                resena.setPuntuacion(rs.getInt("puntuacion"));
+                resena.setFecha(rs.getString("fecha"));
+                lista.add(resena);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return lista;
+    }
+
+
+    public ArrayList<ResenaModel> buscarPorProducto(String producto) {
+        ArrayList<ResenaModel> lista = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT r.*, u.nombre AS nombre_usuario FROM reseñas r " +
+                "JOIN usuarios u ON r.usuario_id = u.id " +
+                "WHERE r.producto ILIKE ?";
+
+        try {
+            conn = conectarBD();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, "%" + producto + "%");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ResenaModel resena = new ResenaModel();
+                resena.setIdUsuario(rs.getInt("usuario_id"));
+                resena.setNombreUsuario(rs.getString("nombre_usuario"));
+                resena.setProducto(rs.getString("producto"));
+                resena.setMarca(rs.getString("marca"));
+                resena.setTipoPiel(rs.getString("tipo_piel"));
+                resena.setComentario(rs.getString("comentario"));
+                resena.setPuntuacion(rs.getInt("puntuacion"));
+                resena.setFecha(rs.getString("fecha"));
+                lista.add(resena);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return lista;
+    }
+
+
+    public ArrayList<ResenaModel> buscarPorMarca(String marca) {
+        ArrayList<ResenaModel> lista = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT r.*, u.nombre AS nombre_usuario FROM reseñas r " +
+                "JOIN usuarios u ON r.usuario_id = u.id " +
+                "WHERE r.marca ILIKE ?";
+
+        try {
+            conn = conectarBD();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, "%" + marca + "%");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ResenaModel resena = new ResenaModel();
+                resena.setIdUsuario(rs.getInt("usuario_id"));
+                resena.setNombreUsuario(rs.getString("nombre_usuario"));
+                resena.setProducto(rs.getString("producto"));
+                resena.setMarca(rs.getString("marca"));
+                resena.setTipoPiel(rs.getString("tipo_piel"));
+                resena.setComentario(rs.getString("comentario"));
+                resena.setPuntuacion(rs.getInt("puntuacion"));
+                resena.setFecha(rs.getString("fecha"));
+                lista.add(resena);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return lista;
+    }
+
+
+
 
 }

@@ -13,4 +13,9 @@
         android:icon="@drawable/info"
         android:title="Información" />
 
+    <item
+        android:id="@+id/menu_cerrarSesion"
+        android:icon="@drawable/logout"
+        android:title="Cerrar Sesion" />
+
 </menu>

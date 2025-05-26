@@ -35,23 +35,56 @@
     <string name="aceptarRegisrto">Registrarse</string>
     <string name="cancelarRegistro">Volver al inicio</string>
 
+    //VERIFICAR CÓDIGO
+    <string name="verifica">Verifica Tu Código</string>
+    <string name="titulo1V">¡YA CASI LO TIENES!</string>
+    <string name="tituloV">Te hemos envíado un código a tu correo electrónico para que verifiques tu cuenta</string>
+    <string name="codigoV">Introduce el código</string>
+    <string name="verificarV">Verificar</string>
+    <string name="cancelarV">Cancelar</string>
+
     //MENÚ PRINCIPAL
+    <string name="seguimiento">Seguimiento Diario</string>
     <string name="bienvenido">Bienvenido</string>
+    <string name="comienza">Comienza a añadir el seguimiento de tu rutina</string>
     <string name="selfie">¡Hazte un selfie!</string>
     <string name="piel">¿Cómo sientes tu piel hoy?</string>
-    <string name="pielEscribir">Escribe como sientes tu piel y pulsa el botón añadir</string>
-    <string name="pielAñadir">Sentimientos añadidos: </string>
+    <string name="pielEscribir">Escribe como sientes tu piel y pulsa el botón "+"</string>
+    <string name="pielAñadir">Estados añadidos: </string>
     <string name="productos">¿Qué productos has utilizado hoy?</string>
-    <string name="productosEscribir">Escribe un producto y pulsa el botón añadir</string>
+    <string name="productosEscribir">Escribe un producto y pulsa el botón "+"</string>
     <string name="productosAñadir">Productos añadidos: </string>
     <string name="comida">¿Qué alimentos has comido hoy?</string>
-    <string name="comidaEscribir">Escribe un alimento y pulsa el botón añadir</string>
+    <string name="comidaEscribir">Escribe un alimento y pulsa el botón "+"</string>
     <string name="comidaAñadir">Alimentos añadidos: </string>
-    <string name="agua">¿Cuánta cantidad de agua has bebido hoy?</string>
-    <string name="aguaAñadir">Agua consumida: </string>
+    <string name="agua">¿Qué cantidad de agua has bebido?</string>
+    <string name="borrarSelfie">Borrar selfie</string>
+    <string name="borrarEstados">Borrar estados</string>
+    <string name="borrarProductos">Borrar productos</string>
+    <string name="borrarAlimentos">Borrar alimentos</string>
 
     //RESEÑAS
+    <string name="resenas">Reseñas</string>
     <string name="tituloResenas">¿Necesitas saber cómo le ha ido un producto de cuidado de la piel a otros usuarios?</string>
     <string name="subtituloResenas">¡Descubre aquí sus reseñas!</string>
     <string name="insertarResenas">Escribe tu propia reseña de un producto para ayudar a otros usuaios</string>
+    <string name="filtros">Filtros</string>
+    <string name="tipoPielFiltros">Tipo de piel</string>
+    <string name="productoFiltros">Producto</string>
+    <string name="marcaFiltros">Marca</string>
+    <string name="buscarFiltros">Buscar</string>
+    <string name="borrarFiltros">Borrar filtros</string>
+
+    //POPUP RESEÑAS
+    <string name="usuarioPopup">Usuario</string>
+    <string name="fechaPopup">Fecha</string>
+    <string name="productoPopup">Producto</string>
+    <string name="marcaPopup">Marca</string>
+    <string name="tipoPielPopup">Tipo de piel</string>
+    <string name="comentarioPopup">Comentario</string>
+    <string name="guardarPopup">Guardar</string>
+
+    //INFORMACIÓN GENERAL
+    <string name="tituloInfo">Tips Para Tu Rutina</string>
+
 </resources>

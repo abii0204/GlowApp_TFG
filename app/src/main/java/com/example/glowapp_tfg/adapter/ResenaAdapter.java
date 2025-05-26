@@ -1,61 +1,62 @@
 package com.example.glowapp_tfg.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.glowapp_tfg.R;
 import com.example.glowapp_tfg.modelos.ResenaModel;
 
 import java.util.ArrayList;
 
-public class ResenaAdapter extends BaseAdapter {
-    private Context context;
+public class ResenaAdapter extends RecyclerView.Adapter<ResenaAdapter.ViewHolder> {
+
     private ArrayList<ResenaModel> listaResenas;
 
-    public ResenaAdapter(Context context, ArrayList<ResenaModel> listaResenas) {
-        this.context = context;
+    public ResenaAdapter(ArrayList<ResenaModel> listaResenas) {
         this.listaResenas = listaResenas;
     }
 
+    @NonNull
     @Override
-    public int getCount() {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_resena, parent, false);
+        return new ViewHolder(vista);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        ResenaModel resena = listaResenas.get(position);
+        holder.tvNombreUsuario.setText(resena.getNombreUsuario());
+        holder.tvFecha.setText(resena.getFecha());
+        holder.tvProducto.setText("Producto: " + resena.getProducto());
+        holder.tvMarca.setText("Marca: " + resena.getMarca());
+        holder.tvTipoPiel.setText("Tipo de piel: " + resena.getTipoPiel());
+        holder.tvComentario.setText("Comentario: " + resena.getComentario());
+        holder.tvPuntuacion.setText("Puntuación: " + resena.getPuntuacion() + " ★");
+    }
+
+    @Override
+    public int getItemCount() {
         return listaResenas.size();
     }
 
-    @Override
-    public Object getItem(int position) {
-        return listaResenas.get(position);
-    }
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView tvNombreUsuario, tvFecha, tvProducto, tvMarca, tvTipoPiel, tvComentario, tvPuntuacion;
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ResenaModel resena = listaResenas.get(position);
-
-        if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_resena, parent, false);
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            tvNombreUsuario = itemView.findViewById(R.id.tvNombreUsuarioResena);
+            tvFecha = itemView.findViewById(R.id.tvFechaResena);
+            tvProducto = itemView.findViewById(R.id.tvProducto);
+            tvMarca = itemView.findViewById(R.id.tvMarca);
+            tvTipoPiel = itemView.findViewById(R.id.tvTipoPiel);
+            tvComentario = itemView.findViewById(R.id.tvComentario);
+            tvPuntuacion = itemView.findViewById(R.id.tvPuntuacion);
         }
-
-        TextView tvProducto = convertView.findViewById(R.id.tvProducto);
-        TextView tvMarca = convertView.findViewById(R.id.tvMarca);
-        TextView tvTipoPiel = convertView.findViewById(R.id.tvTipoPiel);
-        TextView tvComentario = convertView.findViewById(R.id.tvComentario);
-        TextView tvPuntuacion = convertView.findViewById(R.id.tvPuntuacion);
-
-        tvProducto.setText("Producto: " + resena.getProducto());
-        tvMarca.setText("Marca: " + resena.getMarca());
-        tvTipoPiel.setText("Tipo de piel: " + resena.getTipoPiel());
-        tvComentario.setText("Comentario: " + resena.getComentario());
-        tvPuntuacion.setText("Puntuación: " + resena.getPuntuacion() + " ★");
-
-        return convertView;
     }
 }
