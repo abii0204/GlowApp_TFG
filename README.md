@@ -60,7 +60,7 @@ Este servicio debe ejecutarse en paralelo para que la funcionalidad de verificac
 - Lee consejos personalizados según tu tipo de piel.
 
 ## Base de datos
-En el archivo script_bbdd_tfg.txt (incluido en el repositorio) se encuentra:
+En el archivo script_bbdd_tfg.sql (incluido en el repositorio) se encuentra:
 - La creación completa de todas las tablas necesarias.
 - Las relaciones, claves foráneas y triggers.
 - Inserciones de datos iniciales.
