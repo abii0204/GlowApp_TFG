@@ -66,6 +66,8 @@ En el archivo script_bbdd_tfg.sql (incluido en el repositorio) se encuentra:
 - Inserciones de datos iniciales.
 - **IMPORTANTE** Asegúrate de ejecutar este script en tu servidor PostgreSQL antes de lanzar la aplicación.
 
+[Ver video de demostración](https://github.com/abii0204/GlowApp_TFG/blob/main/demostracionTFG.mp4)
+
 ## Contacto
 - Autor: Abigail Alfageme Molinero
 - Correo: abialfa10@gmail.com
